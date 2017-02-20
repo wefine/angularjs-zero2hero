@@ -1,0 +1,28 @@
+{
+  "name": "angular-zero2hero",
+  "version": "1.0.0",
+  "description": "angular zero2hero",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/.bin/webpack-dev-server",
+    "build": "NODE_ENV=production node node_modules/.bin/webpack && cp app/index.html dist/index.html"
+  },
+  "author": "wefine",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-ui-router": "^0.4.2",
+    "babel-core": "^5.8.38",
+    "babel-loader": "^5.4.2",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.19.0",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^3.13.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.4",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
