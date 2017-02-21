@@ -1,0 +1,15 @@
+{
+  "name": "angular-zero2hero",
+  "description": "angular zero2hero",
+  "main": "index.js",
+  "authors": [
+    "wefine"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/wefine/angularjs-zero2hero",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "bootstrap": "~3.3.x"
+  }
+}
