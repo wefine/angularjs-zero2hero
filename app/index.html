@@ -9,14 +9,14 @@
 <body>
 
 <div>
-    <div ng-controller="FirstCtrl">
-        <input type="text" ng-model="data.message">
-        <h1>{{data.message}}</h1>
+    <div ng-controller="FirstCtrl as vm">
+        <input type="text" ng-model="vm.data.message">
+        <h1>{{vm.data.message}}</h1>
     </div>
 
-    <div ng-controller="SecondCtrl">
-        <input type="text" ng-model="data.message">
-        <h1>{{reversedMessage(data.message)}}</h1>
+    <div ng-controller="SecondCtrl as vm">
+        <input type="text" ng-model="vm.data.message">
+        <h1>{{vm.data.message|reverse}}</h1>
     </div>
 </div>
 
