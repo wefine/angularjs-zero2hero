@@ -6,23 +6,16 @@
     <link rel="stylesheet" type="text/css" href="bower_components/foundation/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/foundation/css/foundation.css"/>
 </head>
+
 <body>
 
-<div>
-    <div>
-        <input type="text" ng-model="data.message">
-        <h1>{{data.message}}</h1>
-
-        <div ng-controller="FirstCtrl as first">
-            <input type="text" ng-model="first.message">
-            <h1>{{first.data}}</h1>
-        </div>
-
-        <div ng-controller="SecondCtrl as second">
-            <input type="text" ng-model="second.message">
-            <h1>{{second.data}}</h1>
-        </div>
-    </div>
+<div ng-controller="FirstCtrl as first">
+<input type="text" ng-model="first.greeting.message">
+    {{ first.greeting.message }} World
 </div>
+<div ng-controller="SecondCtrl as second">
+    {{ second.greeting.message }} in Second
+</div>
+
 </body>
 </html>

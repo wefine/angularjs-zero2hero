@@ -1,13 +1,17 @@
 import angular from "angular";
 
 export default angular.module('z2hApp', [])
-    .controller('FirstCtrl', function FirstCtrl() {
+    .service('greeting', function Greeting() {
+        let greeting = this;
+        greeting.message = 'Default';
+    })
+    .controller('FirstCtrl', function FirstCtrl(greeting) {
         let first = this;
 
-        first.data = "First";
+        first.greeting = greeting;
     })
-    .controller('SecondCtrl', function SecondCtrl() {
+    .controller('SecondCtrl', function SecondCtrl(greeting) {
         let second = this;
 
-        second.data = "Second";
+        second.greeting = greeting;
     });
