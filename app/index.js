@@ -1,19 +1,17 @@
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .directive("superman", function () {
-        return {
-            restrict: "A",
-            link: function () {
-                console.log("I'm working stronger");
-            }
+    .directive("enter", function () {
+        return function (scope, element) {
+            element.bind("mouseenter", function () {
+                console.log("I'm inside of you!");
+            });
         };
     })
-    .directive("flash", function () {
-        return {
-            restrict: "A",
-            link: function () {
-                console.log("I'm working faster");
-            }
+    .directive("leave", function () {
+        return function (scope, element) {
+            element.bind("mouseleave", function () {
+                console.log("I'm leaving on a jet plane!");
+            });
         };
     });
