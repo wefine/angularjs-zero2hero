@@ -1,17 +1,18 @@
 import angular from "angular";
 
 export default angular.module('z2hApp', [])
-    .service('greeting', function Greeting() {
-        let greeting = this;
-        greeting.message = 'Default';
+    .factory('Data', function () {
+        return {
+            message: "I'm data from a service"
+        };
     })
-    .controller('FirstCtrl', function FirstCtrl(greeting) {
-        let first = this;
-
-        first.greeting = greeting;
+    .controller('FirstCtrl', function ($scope, Data) {
+        $scope.data = Data;
     })
-    .controller('SecondCtrl', function SecondCtrl(greeting) {
-        let second = this;
+    .controller('SecondCtrl', function ($scope, Data) {
+        $scope.data = Data;
 
-        second.greeting = greeting;
+        $scope.reversedMessage = function (message) {
+            return message.split("").reverse().join("");
+        };
     });
