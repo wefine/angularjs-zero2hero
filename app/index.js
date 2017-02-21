@@ -1,21 +1,73 @@
 import angular from "angular";
 
 export default angular.module('z2hApp', [])
-    .factory('Data', function () {
-        return {
-            message: "Message"
-        };
+    .factory('Avengers', function () {
+        let Avengers = {};
+        Avengers.cast = [
+            {
+                name: "Robert Downey Jr.",
+                character: "Tony Stark / Iron Man"
+            },
+            {
+                name: "Chris Evans",
+                character: "Steve Rogers / Captain America"
+            },
+            {
+                name: "Mark Ruffalo",
+                character: "Bruce Banner / The Hulk"
+            },
+            {
+                name: "Chris Hemsworth",
+                character: "Thor"
+            },
+            {
+                name: "Scarlett Johansson",
+                character: "Natasha Romanoff / Black Widow"
+            },
+            {
+                name: "Jeremy Renner",
+                character: "Clint Barton / Hawkeye"
+            },
+            {
+                name: "Tom Hiddleston",
+                character: "Loki"
+            },
+            {
+                name: "Clark Gregg",
+                character: "Agent Phil Coulson"
+            },
+            {
+                name: "Cobie Smulders",
+                character: "Agent Maria Hill"
+            },
+            {
+                name: "Stellan Skarsgard",
+                character: "Selvig"
+            },
+            {
+                name: "Samuel L. Jackson",
+                character: "Nick Fury"
+            },
+            {
+                name: "Gwyneth Paltrow",
+                character: "Pepper Potts"
+            },
+            {
+                name: "Paul Bettany",
+                character: "Jarvis (voice)"
+            },
+            {
+                name: "Alexis Denisof",
+                character: "The Other"
+            },
+            {
+                name: "Tina Benko",
+                character: "NASA Scientist"
+            }
+        ];
+        return Avengers;
     })
-    .filter('reverse', function (Data) {
-        return function(text) {
-            return text.split("").reverse().join("") + Data.message;
-        };
-    })
-    .controller('FirstCtrl', function (Data) {
+    .controller('AvengersCtrl', function (Avengers) {
         let vm = this;
-        vm.data = Data;
-    })
-    .controller('SecondCtrl', function (Data) {
-        let vm = this;
-        vm.data = Data;
+        vm.avengers = Avengers;
     });
