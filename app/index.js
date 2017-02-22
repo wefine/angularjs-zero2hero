@@ -8,8 +8,8 @@ export default angular.module('heroApp', [])
     .directive("drink", function () {
         return {
             scope: {
-                aa: "@"
+                flavor: "="
             },
-            template: '<div>{{aa}}</div>'
+            template: '<input type="text" ng-model="flavor">'
         };
     });
