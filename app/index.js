@@ -2,14 +2,17 @@ import angular from "angular";
 
 export default angular.module('heroApp', [])
     .controller("AppCtrl", function () {
-        let $ctrl = this;
-        $ctrl.flavor = "blackberry";
+        var appctrl = this;
+        appctrl.callHome = function (message) {
+            alert(message);
+        };
     })
-    .directive("drink", function () {
+    .directive("phone", function () {
         return {
             scope: {
-                flavor: "="
+                dial: "&"
             },
-            template: '<input type="text" ng-model="flavor">'
+            template: '<input type="text" ng-model="value">' +
+            '<div class="button" ng-click="dial({message:value})">Call home!</div>'
         };
     });

@@ -9,11 +9,10 @@
 <body>
 
 <div>
-    <div ng-controller="AppCtrl as ctrl">
-        Ctrl
-        <input type="text" ng-model="ctrl.flavor">
-        Div
-        <div drink flavor="ctrl.flavor"></div>
+    <div ng-controller="AppCtrl as appctrl">
+        <div phone dial="appctrl.callHome(message)"></div>
+        <div phone dial="appctrl.callHome(message)"></div>
+        <div phone dial="appctrl.callHome(message)"></div>
     </div>
 </div>
 
