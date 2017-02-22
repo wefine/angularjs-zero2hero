@@ -1,10 +1,23 @@
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .controller("AppCtrl", function() {
-        let ctrl = this;
+    .directive("zippy", function() {
+        return {
+            restrict: "E",
+            transclude: true,
+            scope: {
+                title: "@"
+            },
+            template: '<div>' +
+                '<h3 ng-click="toggleContent()">{{title}}</h3>' +
+                '<div ng-show="isContentVisible" ng-transclude></div>' +
+            '<div>',
+            link: function(scope) {
+                scope.isContentVisible = false;
 
-        ctrl.sayHi = function() {
-            alert("hi");
+                scope.toggleContent = function() {
+                    scope.isContentVisible = !scope.isContentVisible;
+                };
+            }
         };
     });
