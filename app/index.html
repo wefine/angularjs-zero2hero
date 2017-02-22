@@ -9,10 +9,8 @@
 <body>
 
 <div>
-    <div ng-controller="AppCtrl">
-        <panel>
-            <div class="button">Click me!</div>
-        </panel>
+    <div ng-controller="AppCtrl as ctrl">
+        <div class="button" ng-click="ctrl.sayHi()">Click me!</div>
     </div>
 </div>
 
