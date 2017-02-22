@@ -1,23 +1,28 @@
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .directive("zippy", function() {
+    .directive("dumbPassword", function () {
+        let validElement = angular.element("<div id='errorId'>{{model.input}}</div>");
+
+        let link = function (scope) {
+            scope.$watch("model.input", function (value) {
+                if (value == "password") {
+                    validElement.addClass("alert-danger alert");
+                } else {
+                    validElement.removeClass("alert-danger alert");
+                }
+            });
+        };
         return {
             restrict: "E",
-            transclude: true,
-            scope: {
-                title: "@"
-            },
+            replace: true,
             template: '<div>' +
-                '<h3 ng-click="toggleContent()">{{title}}</h3>' +
-                '<div ng-show="isContentVisible" ng-transclude></div>' +
+            '<input type="text" ng-model="model.input">' +
             '<div>',
-            link: function(scope) {
-                scope.isContentVisible = false;
+            compile: function (tElem) {
+                tElem.append(validElement);
 
-                scope.toggleContent = function() {
-                    scope.isContentVisible = !scope.isContentVisible;
-                };
+                return link;
             }
         };
     });
