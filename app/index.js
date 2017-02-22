@@ -1,20 +1,15 @@
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .controller("ChoreCtrl", function () {
-        let vm = this;
-        vm.logChore = function (chore) {
-            alert(chore + " is done!");
-        };
+    .controller("AppCtrl", function () {
+        let $ctrl = this;
+        $ctrl.flavor = "blackberry";
     })
-    .directive("kid", function () {
+    .directive("drink", function () {
         return {
-            restrict: "E",
             scope: {
-                done: "&"
+                aa: "@"
             },
-            template: '<input type="text" ng-model="value">' +
-            ' {{value}}' +
-            ' <div class="button" ng-click="done({chore:value})">I\'m done!</div>'
+            template: '<div>{{aa}}</div>'
         };
     });

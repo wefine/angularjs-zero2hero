@@ -9,8 +9,9 @@
 <body>
 
 <div>
-    <div ng-controller="ChoreCtrl as vm">
-        <kid done="vm.logChore(chore)"></kid>
+    <div ng-controller="AppCtrl as ctrl">
+        <input ng-model="ctrl.flavor">
+        <div class="button" drink aa="{{ctrl.flavor}}"></div>
     </div>
 </div>
 
