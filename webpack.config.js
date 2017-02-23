@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
+// do not show deprecation warning
+process.noDeprecation = true;
+
 module.exports = {
     context: __dirname + '/app',
     entry: {
@@ -25,12 +28,12 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
+                use: 'babel-loader',
                 exclude: /node_modules/
             },
             {
                 test: /\.html$/,
-                loader: 'raw-loader'
+                use: 'raw-loader'
             },
             {
                 test: /\.s?css$/,
@@ -38,27 +41,27 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                loader: "file-loader"
+                use: "file-loader"
             },
             {
                 test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
+                use: "url?limit=10000&mimetype=application/font-woff"
             },
             {
                 test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
+                use: "url?limit=10000&mimetype=application/font-woff"
             },
             {
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/octet-stream"
+                use: "url?limit=10000&mimetype=application/octet-stream"
             },
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file"
+                use: "file"
             },
             {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=image/svg+xml"
+                use: "url?limit=10000&mimetype=image/svg+xml"
             },
         ]
     },
