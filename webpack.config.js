@@ -33,6 +33,10 @@ module.exports = {
                 loader: 'raw-loader'
             },
             {
+                test: /\.scss$/,
+                use : ExtractTextPlugin.extract(["css-loader"]),
+            },
+            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
@@ -75,7 +79,7 @@ module.exports = {
             jQuery: "jquery",
             "window.jQuery": "jquery"
         }),
-        new ExtractTextPlugin('styles.css'),
+        new ExtractTextPlugin('[hash].bundle.css'),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: '[hash].vendor.js'}),
         new AddAssetHtmlPlugin({
             filepath: require.resolve('./node_modules/bootstrap/dist/css/bootstrap.css'),

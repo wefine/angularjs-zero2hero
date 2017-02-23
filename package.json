@@ -2,7 +2,6 @@
   "name": "angular-zero2hero",
   "version": "1.0.0",
   "description": "angular zero2hero",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node node_modules/.bin/webpack-dev-server",
