@@ -33,15 +33,8 @@ module.exports = {
                 loader: 'raw-loader'
             },
             {
-                test: /\.scss$/,
-                use : ExtractTextPlugin.extract(["css-loader"]),
-            },
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ['style-loader', 'css-loader', 'resolve-url-loader']
-                })
+                test: /\.s?css$/,
+                use: ExtractTextPlugin.extract(["css-loader"]),
             },
             {
                 test: /\.png$/,

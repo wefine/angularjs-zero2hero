@@ -1,5 +1,6 @@
 
-import './styles.scss'
+import './styles.scss';
+import './footer.css';
 import angular from "angular";
 
 export default angular.module('heroApp', [])
