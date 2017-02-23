@@ -1,31 +1,21 @@
-
-import './styles.scss';
-import './footer.css';
+import "./styles.scss";
+import "./footer.css";
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .directive("dumbPassword", function () {
-        let validElement = angular.element("<div id='errorId'>{{model.input}}</div>");
-
-        let link = function (scope) {
-            scope.$watch("model.input", function (value) {
-                if (value == "password") {
-                    validElement.addClass("alert-danger alert");
-                } else {
-                    validElement.removeClass("alert-danger alert");
-                }
-            });
-        };
+    .controller("MyCtrl", ['$scope', '$http', function ($scope, $http) {
+        $scope.name = 'wang';
+    }])
+    .directive("myDirective", function ($http, $parse) {
         return {
-            restrict: "E",
-            replace: true,
-            template: '<div>' +
-            '<input type="text" ng-model="model.input">' +
-            '<div>',
-            compile: function (tElem) {
-                tElem.append(validElement);
-
-                return link;
+            // If scope was defined in directive, the $scope is equal to native scope.
+            scope : {
+              name : '@'
+            },
+            template: '<div>{{name}} from directive</div>',
+            link: function ($scope, scope, attrs) {
+                console.log($scope);
+                console.log($scope.name);
             }
-        };
+        }
     });
