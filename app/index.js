@@ -1,39 +1,14 @@
-var app = angular.module("heroApp", ["ngRoute"]);
+import angular from "angular";
 
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/',
-            {
-                templateUrl: "app.html",
-                controller: "AppCtrl",
-                resolve: {
-                    prepData: appCtrl.prepData,
-                    loadData: appCtrl.loadData
-                }
-            })
-});
-
-var appCtrl = app.controller("AppCtrl", function ($scope, $route) {
-    console.log($route);
-    $scope.model = {
-        message: "I'm a great app!"
-    }
-});
-
-appCtrl.loadData = function ($q, $timeout) {
-    var defer = $q.defer();
-    $timeout(function () {
-        console.log('load');
-        defer.resolve("loadData");
-    }, 2000);
-    return defer.promise;
-};
-
-appCtrl.prepData = function ($q, $timeout) {
-    var defer = $q.defer();
-    $timeout(function () {
-        console.log('prep');
-        defer.resolve("prepData");
-    }, 2000);
-    return defer.promise;
-};
+angular.module("heroApp", [])
+    .factory("game", function () {
+        return {
+            title: "StarCraft"
+        };
+    })
+    .controller("AppCtrl", function ($scope, $injector) {
+        $injector.invoke(function (game) {
+            $scope.title = game.title;
+            alert(game.title);
+        });
+    });
