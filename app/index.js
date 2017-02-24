@@ -3,19 +3,24 @@ import "./footer.css";
 import angular from "angular";
 
 export default angular.module('heroApp', [])
-    .controller("MyCtrl", ['$scope', '$http', function ($scope, $http) {
-        $scope.name = 'wang';
+    .controller('MyCtrl', ['$scope', function ($scope) {
+        $scope.model = {};
+        $scope.model.content = "default";
     }])
-    .directive("myDirective", function ($http, $parse) {
+    .directive("zippy", function () {
         return {
-            // If scope was defined in directive, the $scope is equal to native scope.
-            scope : {
-              name : '@'
+            restrict: "E",
+            transclude: true,
+            scope: {
+                title: "@"
             },
-            template: '<div>{{name}} from directive</div>',
-            link: function ($scope, scope, attrs) {
-                console.log($scope);
-                console.log($scope.name);
+            templateUrl: 'zippy.html',
+            link: function (scope) {
+                scope.isContentVisible = false;
+
+                scope.toggleContent = function () {
+                    scope.isContentVisible = !scope.isContentVisible;
+                };
             }
-        }
+        };
     });

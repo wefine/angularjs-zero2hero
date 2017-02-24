@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="heroApp">
+<html data-ng-app="heroApp">
 <head>
     <meta charset="UTF-8">
     <title>Angular HeroApp</title>
 </head>
 <body>
 
-<div>
-    <div ng-controller="MyCtrl">
-        <div>{{name}} from controller.</div>
-        <div my-directive data-name="hello"></div>
-    </div>
+<div data-ng-controller="MyCtrl">
+    <label>title:
+        <input type="text" data-ng-model="model.title">
+    </label>
+    <label>content:
+        <input type="text" data-ng-model="model.content">
+    </label>
+
+    <zippy title="{{model.title}}">
+        The content is: {{model.content}}
+    </zippy>
 </div>
 
 </body>
