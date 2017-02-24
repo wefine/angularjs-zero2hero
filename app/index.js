@@ -3,19 +3,18 @@ import angular from "angular";
 export default angular.module('heroApp', ["ngRoute"])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/', {
-                templateUrl: "app.html",
-                controller: "AppCtrl"
-            })
-            .when('/pizza', {
-                template: "Yum!!"
-            })
-            .otherwise({
-                template: "This doesn't exist!"
-            })
+            .when('/map/:country/:state/:city',
+                {
+                    templateUrl: "app.html",
+                    controller: "AppCtrl"
+                })
     })
-    .controller("AppCtrl", function ($scope) {
+    .controller("AppCtrl", function ($scope, $routeParams) {
+
         $scope.model = {
-            message: "This is ngRoute!!!"
+            message: "Address: " +
+            $routeParams.country + ", " +
+            $routeParams.state + ", " +
+            $routeParams.city + ", "
         }
     });
