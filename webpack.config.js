@@ -17,7 +17,9 @@ module.exports = {
         ],
         vendor: [
             'bootstrap',
-            'angular'
+            'angular',
+            'angular-ui-router',
+            'angular-route'
         ]
     },
     output: {
