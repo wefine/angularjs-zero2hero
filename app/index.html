@@ -7,8 +7,12 @@
 <body>
 
 <div>
-    <div data-ng-controller="AppCtrl">
-        <h1 class="panel">{{title}}</h1>
+    <div data-ng-controller="foo">
+        <div class="button"
+             data-ng-repeat="item in 'somewrd'.split('') track by $index"
+             data-ng-click="myFunc($event)">
+            {{$index + 1}}. {{item}}
+        </div>
     </div>
 </div>
 

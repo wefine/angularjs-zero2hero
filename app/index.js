@@ -1,14 +1,14 @@
 import angular from "angular";
 
 angular.module("heroApp", [])
-    .factory("game", function () {
-        return {
-            title: "StarCraft"
-        };
+    .config(function ($logProvider) {
+        $logProvider.debugEnabled(false);
     })
-    .controller("AppCtrl", function ($scope, $injector) {
-        $injector.invoke(function (game) {
-            $scope.title = game.title;
-            alert(game.title);
-        });
+    .run(function ($rootScope, $log) {
+        $rootScope.$log = $log;
+    })
+    .controller("foo", function ($scope, $log) {
+        $scope.myFunc = function (ev) {
+            $log.info(ev)
+        };
     });
