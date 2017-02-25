@@ -7,11 +7,10 @@
 <body>
 
 <div>
-    <div data-ng-controller="foo">
-        <div class="button"
-             data-ng-repeat="item in 'somewrd'.split('') track by $index"
-             data-ng-click="myFunc($event)">
-            {{$index + 1}}. {{item}}
+    <div class="button alert">button</div>
+    <div ng-controller="RoomCtrl as room">
+        <div class="button" ng-click="room.openDoor()">
+            {{room.buttonTitle}}
         </div>
     </div>
 </div>

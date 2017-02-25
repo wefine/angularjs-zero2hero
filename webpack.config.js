@@ -16,7 +16,6 @@ module.exports = {
             './index.js'
         ],
         vendor: [
-            'bootstrap',
             'angular',
             'angular-ui-router',
             'angular-route'
@@ -80,7 +79,8 @@ module.exports = {
         new ExtractTextPlugin('[hash].bundle.css'),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: '[hash].vendor.js'}),
         new AddAssetHtmlPlugin({
-            filepath: require.resolve('./node_modules/bootstrap/dist/css/bootstrap.css'),
+            filepath: require.resolve('./node_modules/foundation-sites/dist/css/foundation.css'),
+            includeSourcemap: false,
             typeOfAsset: 'css'
         })
     ],

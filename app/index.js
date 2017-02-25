@@ -1,14 +1,11 @@
+import 'foundation'
 import angular from "angular";
 
 angular.module("heroApp", [])
-    .config(function ($logProvider) {
-        $logProvider.debugEnabled(false);
-    })
-    .run(function ($rootScope, $log) {
-        $rootScope.$log = $log;
-    })
-    .controller("foo", function ($scope, $log) {
-        $scope.myFunc = function (ev) {
-            $log.info(ev)
+    .controller("RoomCtrl", function () {
+        this.openDoor = function () {
+            alert("creak");
         };
+
+        this.buttonTitle = "I'm a button";
     });
