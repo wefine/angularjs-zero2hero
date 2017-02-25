@@ -2,17 +2,29 @@ import angular from "angular";
 
 angular.module("heroApp", ["ngAnimate"])
     .controller("AppCtrl", function () {
-        this.toggle = true;
+        this.isHidden = false;
+        this.fadeIt = function () {
+            this.isHidden = !this.isHidden;
+        };
     })
-    .animation(".toggle", function () {
+    .directive("hideMe", function ($animate) {
+        return function (scope, element, attrs) {
+            scope.$watch(attrs.hideMe, function (newVal) {
+                if (newVal) {
+                    $animate.addClass(element, "fade");
+                } else {
+                    $animate.removeClass(element, "fade");
+                }
+            });
+        };
+    })
+    .animation(".fade", function () {
         return {
-            leave: function (element, done) {
-                element.text("Nooooo!!!");
-                TweenMax.to(element, 1, {opacity: 0.1})
+            addClass: function (element, className) {
+                TweenMax.to(element, 1, {opacity: 0});
             },
-            enter: function (element, done) {
-                element.text("Yay, I'm alive!")
-                TweenMax.from(element, 1, {opacity: 0})
+            removeClass: function (element, className) {
+                TweenMax.to(element, 1, {opacity: 1});
             }
-        }
+        };
     });
