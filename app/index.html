@@ -7,13 +7,29 @@
 <body>
 
 <div ng-controller="AppCtrl as app">
-    <button class="button large alert" ng-click="app.fadeIt()">Click to fade</button>
-    <div class="badge" hide-me="app.isHidden">Fade me</div>
-    <div class="badge" hide-me="app.isHidden">Fade me</div>
-    <div class="badge">Fade me</div>
-    <div class="badge" hide-me="app.isHidden">Fade me</div>
-    <div class="badge" hide-me="app.isHidden">Fade me</div>
-    <div class="badge" hide-me="app.isHidden">Fade me</div>
+    <form>
+        <input type="text" class="input" ng-model="app.contactCopy.firstName" />
+        <button class="button" ng-click="app.saveContact()">Save</button>
+    </form>
+
+    <div class="div" style="margin-top: 40px;"></div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>First</td>
+            <td>Last</td>
+            <td>Phone</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contact in app.contacts" ng-click="app.selectContact(contact)">
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.phone}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>
