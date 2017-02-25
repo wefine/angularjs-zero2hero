@@ -18,7 +18,8 @@ module.exports = {
             'angular-animate',
             'angular-ui-router',
             'angular-route',
-            'gsap'
+            'gsap',
+            'lodash'
         ]
     },
     output: {
