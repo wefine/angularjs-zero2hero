@@ -7,9 +7,9 @@
 <body>
 
 <div ng-controller="AppCtrl as app">
-    <div ng-repeat-start="thing in app.things">{{thing}}</div>
-    Anything in here
-    <div ng-repeat-end="">Also in here with binding {{thing}}</div>
+    <button class="button" ng-click="app.toggle=!app.toggle">Toggle Animation</button>
+
+    <div class="toggle" ng-if="app.toggle">Some content here</div>
 </div>
 
 </body>

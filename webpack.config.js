@@ -11,12 +11,11 @@ module.exports = {
     context: __dirname + '/app',
     entry: {
         app: [
-            // TODO: doesn't work functionality, may fix it in the future.
-            // 'bootstrap-loader/lib/bootstrap.loader?extractStyles&configFilePath='+__dirname+'/.bootstraprc!bootstrap-loader/no-op.js',
             './index.js'
         ],
         vendor: [
             'angular',
+            'angular-animate',
             'angular-ui-router',
             'angular-route'
         ]

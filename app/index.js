@@ -1,7 +1,7 @@
-import "foundation";
+import "./style.css"
 import angular from "angular";
 
-angular.module("heroApp", [])
+angular.module("heroApp", ["ngAnimate"])
     .controller("AppCtrl", function() {
-        this.things = ["one", "two", "three"];
+        this.toggle = true;
     });
