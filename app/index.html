@@ -6,12 +6,10 @@
 </head>
 <body>
 
-<div>
-    <country>
-        <state>
-            <city></city>
-        </state>
-    </country>
+<div ng-controller="AppCtrl as app">
+    <div ng-repeat-start="thing in app.things">{{thing}}</div>
+    Anything in here
+    <div ng-repeat-end="">Also in here with binding {{thing}}</div>
 </div>
 
 </body>
